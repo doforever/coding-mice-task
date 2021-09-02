@@ -1,0 +1,44 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  padding: $base-padding;
+
+  .post {
+    background-color: $color-light;
+    padding: $base-padding*2;
+    min-height: 50vh;
+    border-radius: 40px;
+  }
+
+  .form {
+    @include flex(column, flex-end, center);
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid $color-secondary;
+      border-radius: $radius;
+      line-height: inherit;
+      padding: $base-padding;
+      outline-color: $color-secondary;
+
+      .error {
+        border: 2px solid $color-danger;
+      }
+    }
+
+    label {
+      margin-top: $base-padding;
+    }
+  }
+
+   .actions {
+    padding: 16px 40px;
+    margin-left: auto;
+  }
+}
+
+@media(min-width: $size-md) {
+  .root .actions {
+    @include flex(column, flex-start, flex-start);
+  }
+}
