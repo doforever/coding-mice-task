@@ -1,0 +1,8 @@
+@use 'sass:color';
+@import '../../../styles/settings.scss';
+
+.root {
+  background-color: $color-light;
+  padding: $base-padding;
+  border-radius: $radius;
+}

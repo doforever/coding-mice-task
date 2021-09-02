@@ -1,0 +1,17 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  background-color: $color-secondary;
+  padding: $base-padding;
+ 
+
+  .title {
+    margin: 0;
+    padding-left: $base-padding;
+
+    a {
+      text-decoration: none;
+      color: $color-light;
+    }
+  }
+}
