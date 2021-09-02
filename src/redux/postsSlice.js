@@ -10,6 +10,7 @@ const initialState = {
 /* Selectors */
 
 export const selectAll = (state) => state.posts.value;
+export const selectById = (state, id) => state.posts.value.find(post => post.id.toString() === id);
 export const selectStatus = (state) => state.posts.status;
 
 /* Thunk creators */
