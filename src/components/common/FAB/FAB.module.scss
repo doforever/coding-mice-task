@@ -1,0 +1,20 @@
+@use 'sass:color';
+@import '../../../styles/settings.scss';
+
+.root {
+  display: inline-block;
+  position: fixed;
+  bottom: 15vh;
+  right: 15vh;
+  background-color: $color-primary;
+  color: $color-light;
+  font-weight: 500;
+  padding: $base-padding;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 5px 5px 16px -13px $color-secondary;
+
+  &:hover {
+    background-color: color.scale($color-primary, $saturation: 20%);
+  }
+}

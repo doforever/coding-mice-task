@@ -1,13 +1,18 @@
 import React from 'react';
 import clsx from 'clsx';
 
+import {Link} from 'react-router-dom';
+
 import styles from './PostBox.module.scss';
 
-const PostBox = ({ title, body, className }) => (
-  <div className={clsx(styles.root, className)}>
-    <h2>{title}</h2>
-    <p>{body}</p>
-  </div>
-);
+const PostBox = ({ title, body, className, id }) => {
+
+  return (
+    <div className={clsx(styles.root, className)}>
+      <h2>{title}</h2>
+      <p>{body}</p>
+      <Link to={`/posts/${id}`}>View more</Link>
+    </div>
+)};
 
 export default PostBox;
