@@ -1,3 +1,12 @@
+# Coding Mice - task
+This repo was created as a recruitement tast for Coding Mice. \
+It is a starting point for a simple bulletin app with React and Redux. \
+It fetches data from mock API [{JSON} Placeholder](https://jsonplaceholder.typicode.com/) and displays it in grid view. 
+I implemented React Router for given subpages and prepared react thunk functions for communication with the API. 
+
+## Time limit
+Within given time limit (2h) a managed to get to [commit dae6e5119](https://github.com/doforever/coding-mice-task/commit/dae6e511976fa0c20bbf37c67369f4da0c15ed11).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
