@@ -1,1 +1,49 @@
 @import './settings.scss';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $base-size;
+}
+
+body {
+  background-color: $color-background;
+  font-family: $font-text;
+  color: $color-text;
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 $base-margin 0;
+}
+
+p {
+  margin: 0 0 $base-margin 0;
+}
+
+.container {
+  max-width: 1343px;
+  margin: 0 auto;
+  @include flex(column, stretch, center);
+}
+
+.row {
+  @include flex(row, stretch, space-between);
+  flex-wrap: wrap;
+}
+
+@include grid('sm');
+
+@media(min-width: $size-md) {
+  @include grid('md');
+}
+
+@media(min-width: $size-lg) {
+  @include grid('lg');
+}
+
+@media(min-width: $size-xl) {
+  @include grid('xl');
+}

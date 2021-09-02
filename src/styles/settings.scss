@@ -1,0 +1,45 @@
+@use 'sass:color';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+/* Variables */
+
+$color-background: #F4F7F5;
+$color-light: color.scale($color-background, $lightness: 50%);
+$color-text: #271C2C;
+$color-primary: #D29958;
+$color-secondary: #7F8391;
+$color-danger: #B73D51;
+$font-text: 'Roboto', sans-serif;
+
+$base-size: 16px;
+$base-padding: 12px;
+$base-margin: 18px;
+$radius: 4px;
+$size-md: 768px;
+$size-lg: 992px;
+$size-xl: 1200px;
+
+/* Mixins */
+@mixin flex($flex-direction, $align-items, $justify-content) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@mixin grid($prefix) {
+  @for $i from 1 through 12 {
+    .grid-#{$prefix}-#{$i} {
+      display: grid;
+      grid-template-columns: repeat($i, 1fr);
+      gap: $base-padding;
+    }
+
+    .col-#{$prefix}-#{$i} {
+      $width: 100% / 12 * $i;
+      flex: 0 0 $width;
+      max-width: $width;
+      padding: 0 $base-padding;
+    }
+  }
+}
