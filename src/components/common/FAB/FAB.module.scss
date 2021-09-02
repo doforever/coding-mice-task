@@ -9,10 +9,15 @@
   background-color: $color-primary;
   color: $color-light;
   font-weight: 500;
-  padding: $base-padding;
+  padding: 0 $base-padding;
   border-radius: 50%;
   text-decoration: none;
   box-shadow: 5px 5px 16px -13px $color-secondary;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 1.5rem;
 
   &:hover {
     background-color: color.scale($color-primary, $saturation: 20%);
