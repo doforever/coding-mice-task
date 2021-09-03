@@ -35,8 +35,9 @@ export const addRequest = createAsyncThunk(
 export const removeRequest = createAsyncThunk(
   'posts/removeRequest',
   async (id) => {
-    const res = await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
-    return res.data.id;
+    await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
+    history.push('/');
+    return id;
   }
 );
 
@@ -78,7 +79,7 @@ export const postsSlice = createSlice({
       })
       .addCase(removeRequest.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.value = state.value.filter(post => post.id !== action.payload);
+        state.value = state.value.filter(post => post.id.toString() !== action.payload);
       })
       .addCase(updateRequest.pending, (state) => {
         state.status = 'updating';

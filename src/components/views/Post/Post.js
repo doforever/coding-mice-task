@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import clsx from 'clsx';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectById, fetchAll } from '../../../redux/postsSlice';
+import { selectById, fetchAll, removeRequest } from '../../../redux/postsSlice';
 
 import { Link } from 'react-router-dom';
 import Button from '../../common/Button/Button';
@@ -20,6 +20,8 @@ const Post = () => {
     }
   }, [postData, id, dispatch]);
 
+  const deleteHander = () => dispatch(removeRequest(id));
+
   if (!postData) return 'Loading...';
 
   return (
@@ -30,7 +32,7 @@ const Post = () => {
       </div>
       <ul className={clsx('col-md-4', styles.actions)}>
         <li><Link to={`/post/${id}/edit`}><Button>Edit</Button></Link></li>
-        <li><Button>Delete</Button></li>
+        <li><Button onClick={deleteHander}>Delete</Button></li>
       </ul>
     </div>
   );
