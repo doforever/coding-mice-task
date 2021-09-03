@@ -3,9 +3,9 @@ import clsx from 'clsx';
 
 import styles from './Button.module.scss';
 
-const Button = ({ className, children }) => {
+const Button = ({ className, children, onClick }) => {
   return (
-    <button className={clsx(styles.root, className)}>
+    <button onClick={onClick} className={clsx(styles.root, className)}>
       {children}
     </button>
   );

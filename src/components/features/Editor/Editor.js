@@ -1,29 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
-import { useSelector } from 'react-redux';
-import { selectCurrent } from '../../../redux/postsSlice';
 
 import Button from '../../common/Button/Button';
 
 import styles from './Editor.module.scss';
 
-const Editor = ({className}) => {
-  const data = useSelector(selectCurrent);
+const Editor = ({ className, post }) => {
+  
+  const [postData, setPostData]  = useState(post);
 
-  if(!data) return 'Loading...'
+  const changeHandler = e => {
+    setPostData({ ...postData, [e.target.name]: e.target.value });
+  };
 
+  const saveHandler = e => {
+    console.log('saving', postData);
+  };
+   
   return (
     <div className={clsx('row', styles.root, className)}>
       <div className={clsx('col-sm-12 col-md-8', styles.post)}>
         <form noValidate className={styles.form}>
           <label htmlFor='title'>Title</label>
-          <input name='title' id='name' type='text' value={data.title}></input>
+          <input name='title' id='name' type='text' onChange={changeHandler} value={postData.title}></input>
           <label htmlFor='body'>Text</label>
-          <textarea rows="8" cols="40" name='body' id='body' value={data.body}></textarea>
+          <textarea rows="8" cols="40" name='body' id='body' onChange={changeHandler} value={postData.body}></textarea>
         </form>
       </div>
       <div className={clsx('col-md-4', styles.actions)}>
-        <Button>Save</Button>
+        <Button onClick={saveHandler}>Save</Button>
       </div>
     </div>
   )

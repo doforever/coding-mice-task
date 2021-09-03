@@ -6,4 +6,12 @@
   padding: $base-padding;
   border-radius: $radius;
   @include flex(column, flex-start, space-between);
+
+  a {
+    color: $color-danger;
+
+    &:hover {
+      color: color.scale($color-danger, $saturation: 40%);
+    }
+  }
 }
