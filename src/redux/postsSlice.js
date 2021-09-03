@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { history } from '../App.js';
 
 const initialState = {
   value: [],
@@ -43,6 +44,7 @@ export const updateRequest = createAsyncThunk(
   'posts/updateRequest',
   async (postData) => {
     const res = await axios.put(`https://jsonplaceholder.typicode.com/posts/${postData.id}`, postData);
+    history.push(`/post/${postData.id}`);
     return res.data;
   }
 );
