@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 
 import Button from '../../common/Button/Button';
 
 import styles from './Editor.module.scss';
 
-const Editor = ({ className, post }) => {
+const Editor = ({ className, post, save }) => {
   
   const [postData, setPostData]  = useState(post);
 
@@ -13,8 +13,8 @@ const Editor = ({ className, post }) => {
     setPostData({ ...postData, [e.target.name]: e.target.value });
   };
 
-  const saveHandler = e => {
-    console.log('saving', postData);
+  const saveHandler = () => {
+    save(postData);
   };
    
   return (
