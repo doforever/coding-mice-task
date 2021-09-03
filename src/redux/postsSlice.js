@@ -10,7 +10,7 @@ const initialState = {
 /* Selectors */
 
 export const selectAll = (state) => state.posts.value;
-export const selectById = (state, id) => state.posts.value.find(post => post.id.toString() === id);
+export const selectById = (state, id) => state.posts.value.find(post => post.id === id);
 export const selectStatus = (state) => state.posts.status;
 export const selectCurrent = (state) => state.posts.current;
 
@@ -28,6 +28,7 @@ export const addRequest = createAsyncThunk(
   'posts/addRequest',
   async (postData) => {
     const res = await axios.post(`https://jsonplaceholder.typicode.com/posts`, postData);
+    history.push(`/`);
     return res.data;
   }
 );
@@ -65,21 +66,22 @@ export const postsSlice = createSlice({
       })
       .addCase(fetchAll.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.value = action.payload;
+        state.value = action.payload.map(({id, ...other}) => ({id: id.toString(), ...other}));
       })
       .addCase(addRequest.pending, (state) => {
         state.status = 'saving';
       })
       .addCase(addRequest.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.value.push(action.payload);
+        const {id, ...other} = action.payload; 
+        state.value.push({id: id.toString(), ...other});
       })
       .addCase(removeRequest.pending, (state) => {
         state.status = 'removing';
       })
       .addCase(removeRequest.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.value = state.value.filter(post => post.id.toString() !== action.payload);
+        state.value = state.value.filter(post => post.id !== action.payload);
       })
       .addCase(updateRequest.pending, (state) => {
         state.status = 'updating';
