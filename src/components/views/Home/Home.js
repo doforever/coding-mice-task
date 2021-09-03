@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectAll, selectStatus, fetchAll } from '../../../redux/postsSlice';
 
 import List from '../../features/List/List';
+import Spinner from '../../common/Spinner/Spinner';
 
 import styles from './Home.module.scss';
 
@@ -15,7 +16,7 @@ const Home = () => {
     if (Object.keys(posts).length === 0) dispatch(fetchAll());
   }, []);
 
-  if (status === 'loading') return <div>Loading...</div>
+  if (status === 'loading') return <Spinner/>;
 
   return (
     <div className={styles.root}>
