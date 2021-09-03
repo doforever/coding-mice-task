@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import PostBox from '../../features/PostBox/PostBox';
 import FAB from '../../common/FAB/FAB';
@@ -6,7 +7,6 @@ import FAB from '../../common/FAB/FAB';
 import styles from './List.module.scss';
 
 const List = ({posts}) => {
-
 
   return (
     <div className={styles.root}>
@@ -19,6 +19,10 @@ const List = ({posts}) => {
       <FAB to='/post/add'>+</FAB>
     </div>
   );
+};
+
+List.propTypes = {
+  posts: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default List;

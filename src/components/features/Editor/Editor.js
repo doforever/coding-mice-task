@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 import Button from '../../common/Button/Button';
 
@@ -67,5 +68,11 @@ const Editor = ({ className, post, save }) => {
     </div>
   )
 };
+
+Editor.propTypes = {
+  className: PropTypes.string,
+  post: PropTypes.object,
+  save: PropTypes.func,
+}
 
 export default Editor;

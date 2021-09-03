@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 import {Link} from 'react-router-dom';
 
@@ -14,5 +15,12 @@ const PostBox = ({ title, body, className, id }) => {
       <Link to={`/post/${id}`}>View more</Link>
     </div>
 )};
+
+PostBox.propTypes = {
+  title: PropTypes.string,
+  body: PropTypes.string,
+  className: PropTypes.string,
+  id: PropTypes.number,
+};
 
 export default PostBox;

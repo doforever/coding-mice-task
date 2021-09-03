@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
@@ -11,6 +12,12 @@ const FAB = ({className, children, to}) => {
       {children}
     </Link>
   );
+};
+
+FAB.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  to: PropTypes.string,
 };
 
 export default FAB;

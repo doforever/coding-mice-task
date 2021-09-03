@@ -3,8 +3,11 @@
 .root {
   background-color: $color-secondary;
   padding: $base-padding;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
  
-
   .title {
     margin: 0;
     padding-left: $base-padding;
