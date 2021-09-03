@@ -21,7 +21,7 @@
       padding: $base-padding;
       outline-color: $color-secondary;
 
-      .error {
+      &.error {
         border: 2px solid $color-danger;
       }
     }
@@ -34,6 +34,12 @@
    .actions {
     padding: 16px 40px;
     margin-left: auto;
+  }
+
+  .tip {
+    font-size: 0.9rem;
+    color: $color-danger;
+    width: 100%;
   }
 }
 

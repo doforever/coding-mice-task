@@ -8,7 +8,7 @@ import Editor from '../../features/Editor/Editor';
 import styles from './PostAdd.module.scss';
 
 const PostAdd = () => {
-  const postData = { title: '', text: ''};
+  const postData = { title: '', body: ''};
   const dispatch = useDispatch();
 
   return (
